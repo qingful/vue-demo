@@ -123,6 +123,9 @@ export default {
                         this.todos = res.body.data;
                     },
                     function(err) {
+                        if (err.status == 401) {
+                            this.signOut();
+                        };
                         console.log("获取数据失败");
                     }
                 );
